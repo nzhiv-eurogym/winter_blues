@@ -21,6 +21,10 @@ QUESTIONS = [
 
 SCALE_HELP = "1 — ложь • 2 — скорее ложь • 3 — не знаю/50-50 • 4 — скорее истина • 5 — истина"
 
+# ✅ Инициализация session_state (анонимная история)
+if "results_history" not in st.session_state:
+    st.session_state.results_history = []
+
 
 def advice_for_score(total: int) -> tuple[str, str]:
     if 10 <= total <= 19:
@@ -54,6 +58,7 @@ def band_for_score(total: int) -> str:
         return "30–39"
     return "40–50"
 
+
 # =========================
 # Форма
 # =========================
@@ -63,10 +68,18 @@ with st.form("winter_blues_form"):
 
     answers = []
     for i, q in enumerate(QUESTIONS, start=1):
-        val = st.slider(f"{i}. {q}", min_value=1, max_value=5, value=3, step=1)
+        val = st.slider(
+            f"{i}. {q}",
+            min_value=1,
+            max_value=5,
+            value=3,
+            step=1,
+            key=f"q{i}",
+        )
         answers.append(val)
 
-    submitted = st.form_submit_button("Посчитать результат ✅")
+    submitted = st.form_submit_button("Посчитать результат ✅", key="submit_quiz")
+
 
 # =========================
 # Результат + сохранение в session_state
@@ -78,15 +91,12 @@ if submitted:
     title, tips = advice_for_score(total)
     band = band_for_score(total)
 
-    # Анонимная запись (без имени, без текста ответов)
     st.session_state.results_history.append(
         {
             "ts": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
             "total": total,
             "band": band,
             "title": title,
-            # можно хранить только суммы по вопросам, если надо:
-            # "answers": answers,  # <- раскомментируй, если хочешь сохранять ответы
         }
     )
 
