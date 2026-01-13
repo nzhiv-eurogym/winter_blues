@@ -3,36 +3,32 @@ from datetime import datetime
 
 st.set_page_config(page_title="How to beat the winter blues", page_icon="❄️", layout="centered")
 
-st.markdown(
-    """
-    <style>
-    /* Общая полоса слайдера (неактивная часть) */
-    div[data-baseweb="slider"] > div > div {
-        background-color: #E6E6E6;  /* светло-серый */
-    }
+st.markdown("""
+<style>
+/* 1) Неактивная полоса (серый трек) */
+.stSlider [data-baseweb="slider"] [data-baseweb="track"] {
+  background: #E6E6E6 !important;
+}
 
-    /* Активная (заполненная) часть шкалы */
-    div[data-baseweb="slider"] div[role="slider"] ~ div {
-        background-color: #A8D8F0;  /* мягкий голубой, снежинка */
-    }
+/* 2) Активная полоса (заливка) — голубая */
+.stSlider [data-baseweb="slider"] [data-baseweb="track"] > div {
+  background: #A8D8F0 !important;
+}
 
-    /* Ползунок */
-    div[data-baseweb="slider"] div[role="slider"] {
-        background-color: #A8D8F0;
-        border: 2px solid #A8D8F0;
-    }
+/* 3) Ползунок (thumb) */
+.stSlider [role="slider"] {
+  background-color: #A8D8F0 !important;
+  border-color: #A8D8F0 !important;
+  box-shadow: none !important;
+}
 
-    /* Hover — чуть темнее, но всё ещё мягко */
-    div[data-baseweb="slider"] div[role="slider"]:hover {
-        background-color: #7EC3E6;
-        border-color: #7EC3E6;
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
-
-
+/* 4) Hover (чуть насыщеннее) */
+.stSlider [role="slider"]:hover {
+  background-color: #7EC3E6 !important;
+  border-color: #7EC3E6 !important;
+}
+</style>
+""", unsafe_allow_html=True)
 
 st.title("❄️ «Как победить зимнюю хандру» - сборник советов")
 st.caption("Ответь на вопросы по шкале 1–5 (1 — ложь, 5 — истина). В конце ты получишь результат и советы.")
