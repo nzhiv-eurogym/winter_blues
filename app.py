@@ -58,7 +58,7 @@ def band_for_score(total: int) -> str:
         return "30–39"
     return "40–50"
 
-
+"""
 # =========================
 # Session state (анонимная история)
 # =========================
@@ -86,7 +86,7 @@ with st.sidebar:
     show_details = st.toggle("Показывать детали попыток", value=False)
 
 st.divider()
-
+"""
 # =========================
 # Форма
 # =========================
@@ -142,7 +142,7 @@ if submitted:
     )
 
 st.divider()
-
+"""
 # =========================
 # Отображение истории (по желанию)
 # =========================
@@ -155,3 +155,4 @@ if st.session_state.results_history:
         # компактно: только последние 5
         for r in st.session_state.results_history[-5:]:
             st.write(f"{r['ts']} — **{r['total']}** ({r['band']})")
+"""
