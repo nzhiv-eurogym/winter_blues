@@ -58,35 +58,6 @@ def band_for_score(total: int) -> str:
         return "30–39"
     return "40–50"
 
-"""
-# =========================
-# Session state (анонимная история)
-# =========================
-if "results_history" not in st.session_state:
-    # список попыток в рамках текущей сессии браузера
-    st.session_state.results_history = []
-
-# Боковая панель: история и управление
-with st.sidebar:
-    st.header("🧾 Анонимная история (эта сессия)")
-    st.caption("Сохраняется только в этом окне браузера, пока оно открыто.")
-
-    if st.session_state.results_history:
-        st.write(f"Попыток: **{len(st.session_state.results_history)}**")
-        last = st.session_state.results_history[-1]
-        st.write(f"Последний результат: **{last['total']}** ({last['band']})")
-    else:
-        st.write("Пока нет сохранённых результатов.")
-
-    if st.button("🗑️ Очистить историю"):
-        st.session_state.results_history = []
-        st.success("История очищена.")
-
-    st.divider()
-    show_details = st.toggle("Показывать детали попыток", value=False)
-
-st.divider()
-"""
 # =========================
 # Форма
 # =========================
@@ -142,17 +113,3 @@ if submitted:
     )
 
 st.divider()
-"""
-# =========================
-# Отображение истории (по желанию)
-# =========================
-if st.session_state.results_history:
-    st.subheader("📊 История попыток (эта сессия)")
-    if show_details:
-        for idx, r in enumerate(reversed(st.session_state.results_history), start=1):
-            st.write(f"**#{idx}** • {r['ts']} • **{r['total']}** баллов • {r['band']} • {r['title']}")
-    else:
-        # компактно: только последние 5
-        for r in st.session_state.results_history[-5:]:
-            st.write(f"{r['ts']} — **{r['total']}** ({r['band']})")
-"""
