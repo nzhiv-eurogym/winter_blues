@@ -6,31 +6,32 @@ st.set_page_config(page_title="How to beat the winter blues", page_icon="❄️"
 st.markdown(
     """
     <style>
-    /* Основная полоса слайдера */
+    /* Общая полоса слайдера (неактивная часть) */
     div[data-baseweb="slider"] > div > div {
-        background-color: #cfe3ff;
+        background-color: #E6E6E6;  /* светло-серый */
     }
 
-    /* Активная часть шкалы */
+    /* Активная (заполненная) часть шкалы */
     div[data-baseweb="slider"] div[role="slider"] ~ div {
-        background-color: #4a90e2;
+        background-color: #A8D8F0;  /* мягкий голубой, снежинка */
     }
 
     /* Ползунок */
     div[data-baseweb="slider"] div[role="slider"] {
-        background-color: #4a90e2;
-        border: 2px solid #4a90e2;
+        background-color: #A8D8F0;
+        border: 2px solid #A8D8F0;
     }
 
-    /* Hover */
+    /* Hover — чуть темнее, но всё ещё мягко */
     div[data-baseweb="slider"] div[role="slider"]:hover {
-        background-color: #357ABD;
-        border-color: #357ABD;
+        background-color: #7EC3E6;
+        border-color: #7EC3E6;
     }
     </style>
     """,
     unsafe_allow_html=True
 )
+
 
 
 st.title("❄️ «Как победить зимнюю хандру» - сборник советов")
