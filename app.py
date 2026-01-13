@@ -3,12 +3,11 @@ from datetime import datetime
 
 st.set_page_config(page_title="How to beat the winter blues", page_icon="❄️", layout="centered")
 
-st.title("❄️ How to beat the winter blues")
+st.title("❄️ «Как победить зимнюю хандру» - сборник советов")
 st.caption("Ответь на вопросы по шкале 1–5 (1 — ложь, 5 — истина). В конце ты получишь результат и советы.")
 
 st.info(
-    "Если тебе прямо тяжело и это длится больше пары недель — это не «слабость». "
-    "Поговори с близким взрослым (родитель/учитель/психолог)."
+    " "
 )
 
 QUESTIONS = [
