@@ -3,6 +3,36 @@ from datetime import datetime
 
 st.set_page_config(page_title="How to beat the winter blues", page_icon="❄️", layout="centered")
 
+st.markdown(
+    """
+    <style>
+    /* Основная полоса слайдера */
+    div[data-baseweb="slider"] > div > div {
+        background-color: #cfe3ff;
+    }
+
+    /* Активная часть шкалы */
+    div[data-baseweb="slider"] div[role="slider"] ~ div {
+        background-color: #4a90e2;
+    }
+
+    /* Ползунок */
+    div[data-baseweb="slider"] div[role="slider"] {
+        background-color: #4a90e2;
+        border: 2px solid #4a90e2;
+    }
+
+    /* Hover */
+    div[data-baseweb="slider"] div[role="slider"]:hover {
+        background-color: #357ABD;
+        border-color: #357ABD;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
+
 st.title("❄️ «Как победить зимнюю хандру» - сборник советов")
 st.caption("Ответь на вопросы по шкале 1–5 (1 — ложь, 5 — истина). В конце ты получишь результат и советы.")
 
