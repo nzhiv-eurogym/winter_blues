@@ -3,6 +3,38 @@ from datetime import datetime
 
 st.set_page_config(page_title="How to beat the winter blues", page_icon="❄️", layout="centered")
 
+import base64
+
+def set_background(image_file):
+    with open(image_file, "rb") as f:
+        encoded = base64.b64encode(f.read()).decode()
+
+    st.markdown(
+        f"""
+        <style>
+        /* Фон всей страницы */
+        .stApp {{
+            background-image: url("data:image/png;base64,{encoded}");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }}
+
+        /* Основной контейнер с контентом */
+        .block-container {{
+            background-color: rgba(255, 255, 255, 0.92);
+            padding: 2.5rem;
+            border-radius: 18px;
+            max-width: 900px;
+        }}
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
+
+set_background("background2.png")
+
+
 st.markdown("""
 <style>
 /* 1) Неактивная полоса (серый трек) */
