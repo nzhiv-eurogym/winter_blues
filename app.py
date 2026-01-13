@@ -22,7 +22,7 @@ def set_background(image_file):
 
         /* Основной контейнер с контентом */
         .block-container {{
-            background-color: rgba(255, 255, 255, 0.92);
+            background-color: rgba(255, 255, 255, 0.8);
             padding: 2.5rem;
             border-radius: 18px;
             max-width: 900px;
